@@ -30,21 +30,11 @@ export default class Team {
     return arrayMembers;
   }
 
-  [Symbol.iterator]() {
+  * [Symbol.iterator]() {
     const members = this.toArray();
-    let current = 0;
-    return {
-      next() {
-        if (current < members.length) {
-          current += 1;
-          return {
-            done: false,
-            value: members[current - 1],
-          };
-        }
-        return { done: true };
-      },
 
-    };
+    for (let i = 0; i < members.length; i += 1) {
+      yield members[i];
+    }
   }
 }

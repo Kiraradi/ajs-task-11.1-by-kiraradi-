@@ -245,7 +245,7 @@ test('testing No. 1 of the Magician class with the addition of new rules', () =>
   expect(personBowman.attack).toBe(25);
 });
 
-test('test team iterator', () => {
+test('test team generate', () => {
   const personDaemon = new Daemon('JakeDog');
   const personSwordsman = new Swordsman('FinnHuman');
   const winningTeam = new Team();
@@ -269,7 +269,11 @@ test('test team iterator', () => {
   },
   ];
 
-  const result = [...winningTeam];
+  const result = [];
+
+  for (const person of winningTeam) {
+    result.push(person);
+  }
 
   expect(result).toEqual(dataForVerification);
 });
